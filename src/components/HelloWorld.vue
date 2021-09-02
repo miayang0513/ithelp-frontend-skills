@@ -10,7 +10,7 @@
       </a>
       .
     </p>
-    <h3>Installed CLI Plugins</h3>
+    <h3>{{ t("subTitle.installedCliPlugins") }}</h3>
     <ul>
       <li>
         <a
@@ -18,7 +18,7 @@
           target="_blank"
           rel="noopener"
         >
-          babel
+          {{ t("installedCliPlugins.babel") }}
         </a>
       </li>
       <li>
@@ -27,43 +27,49 @@
           target="_blank"
           rel="noopener"
         >
-          eslint
+          {{ t("installedCliPlugins.eslint") }}
         </a>
       </li>
     </ul>
-    <h3>Essential Links</h3>
+    <h3>{{ t("subTitle.essentialLinks") }}</h3>
     <ul>
       <li>
-        <a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a>
+        <a href="https://vuejs.org" target="_blank" rel="noopener">
+          {{ t("essentialLinks.coreDocs") }}
+        </a>
       </li>
       <li>
         <a href="https://forum.vuejs.org" target="_blank" rel="noopener">
-          Forum
+          {{ t("essentialLinks.forum") }}
         </a>
       </li>
       <li>
         <a href="https://chat.vuejs.org" target="_blank" rel="noopener">
-          Community Chat
+          {{ t("essentialLinks.communityChat") }}
         </a>
       </li>
       <li>
         <a href="https://twitter.com/vuejs" target="_blank" rel="noopener">
-          Twitter
+          {{ t("essentialLinks.twitter") }}
         </a>
       </li>
       <li>
-        <a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a>
+        <a href="https://news.vuejs.org" target="_blank" rel="noopener">
+          {{ t("essentialLinks.news") }}
+        </a>
       </li>
     </ul>
-    <h3>Ecosystem</h3>
+    <h3>{{ t("subTitle.ecosystem") }}</h3>
     <ul>
       <li>
         <a href="https://router.vuejs.org" target="_blank" rel="noopener">
-          vue-router
+          {{ t("ecosystem.vueRouter") }}
         </a>
       </li>
       <li>
-        <a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a>
+        <a href="https://vuex.vuejs.org" target="_blank" rel="noopener">
+          {{ t("ecosystem.vuex") }}
+        </a>
       </li>
       <li>
         <a
@@ -71,12 +77,12 @@
           target="_blank"
           rel="noopener"
         >
-          vue-devtools
+          {{ t("ecosystem.vueDevtools") }}
         </a>
       </li>
       <li>
         <a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">
-          vue-loader
+          {{ t("ecosystem.vueLoader") }}
         </a>
       </li>
       <li>
@@ -85,7 +91,7 @@
           target="_blank"
           rel="noopener"
         >
-          awesome-vue
+          {{ t("ecosystem.awesomeVue") }}
         </a>
       </li>
     </ul>
@@ -93,10 +99,17 @@
 </template>
 
 <script>
+import { useI18n } from 'vue-i18n'
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  setup () {
+    const { t } = useI18n()
+    return {
+      t
+    }
   }
 }
 </script>

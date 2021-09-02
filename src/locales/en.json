@@ -1,3 +1,26 @@
 {
-  "message": "hello i18n !!"
+  "title": "Welcome to Your Vue.js App",
+  "subTitle": {
+    "installedCliPlugins": "Installed CLI Plugins",
+    "essentialLinks": "Essential Links",
+    "ecosystem": "Ecosystem"
+  },
+  "installedCliPlugins": {
+    "babel": "babel",
+    "eslint": "eslint"
+  },
+  "essentialLinks": {
+    "coreDocs": "Core Docs",
+    "forum": "Forum",
+    "communityChat": "Community Chat",
+    "twitter": "Twitter",
+    "news": "News"
+  },
+  "ecosystem": {
+    "vueRouter":"vue-router",
+    "vuex": "vuex",
+    "vueDevtools": "vue-devtools",
+    "vueLoader": "vue-loader",
+    "awesomeVue": "awesome-vue"
+  }
 }

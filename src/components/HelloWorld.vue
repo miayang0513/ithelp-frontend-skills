@@ -10,7 +10,7 @@
       </a>
       .
     </p>
-    <select v-model="locale">
+    <select v-model="$i18n.locale">
       <option
         v-for="item in localeOptions"
         :key="`locale-${item.lang}`"
@@ -19,7 +19,7 @@
         {{ item.name }}
       </option>
     </select>
-    <h3>{{ t("subTitle.installedCliPlugins") }}</h3>
+    <h3>{{ $t("subTitle.installedCliPlugins") }}</h3>
     <ul>
       <li>
         <a
@@ -27,7 +27,7 @@
           target="_blank"
           rel="noopener"
         >
-          {{ t("installedCliPlugins.babel") }}
+          {{ $t("installedCliPlugins.babel") }}
         </a>
       </li>
       <li>
@@ -36,48 +36,48 @@
           target="_blank"
           rel="noopener"
         >
-          {{ t("installedCliPlugins.eslint") }}
+          {{ $t("installedCliPlugins.eslint") }}
         </a>
       </li>
     </ul>
-    <h3>{{ t("subTitle.essentialLinks") }}</h3>
+    <h3>{{ $t("subTitle.essentialLinks") }}</h3>
     <ul>
       <li>
         <a href="https://vuejs.org" target="_blank" rel="noopener">
-          {{ t("essentialLinks.coreDocs") }}
+          {{ $t("essentialLinks.coreDocs") }}
         </a>
       </li>
       <li>
         <a href="https://forum.vuejs.org" target="_blank" rel="noopener">
-          {{ t("essentialLinks.forum") }}
+          {{ $t("essentialLinks.forum") }}
         </a>
       </li>
       <li>
         <a href="https://chat.vuejs.org" target="_blank" rel="noopener">
-          {{ t("essentialLinks.communityChat") }}
+          {{ $t("essentialLinks.communityChat") }}
         </a>
       </li>
       <li>
         <a href="https://twitter.com/vuejs" target="_blank" rel="noopener">
-          {{ t("essentialLinks.twitter") }}
+          {{ $t("essentialLinks.twitter") }}
         </a>
       </li>
       <li>
         <a href="https://news.vuejs.org" target="_blank" rel="noopener">
-          {{ t("essentialLinks.news") }}
+          {{ $t("essentialLinks.news") }}
         </a>
       </li>
     </ul>
-    <h3>{{ t("subTitle.ecosystem") }}</h3>
+    <h3>{{ $t("subTitle.ecosystem") }}</h3>
     <ul>
       <li>
         <a href="https://router.vuejs.org" target="_blank" rel="noopener">
-          {{ t("ecosystem.vueRouter") }}
+          {{ $t("ecosystem.vueRouter") }}
         </a>
       </li>
       <li>
         <a href="https://vuex.vuejs.org" target="_blank" rel="noopener">
-          {{ t("ecosystem.vuex") }}
+          {{ $t("ecosystem.vuex") }}
         </a>
       </li>
       <li>
@@ -86,12 +86,12 @@
           target="_blank"
           rel="noopener"
         >
-          {{ t("ecosystem.vueDevtools") }}
+          {{ $t("ecosystem.vueDevtools") }}
         </a>
       </li>
       <li>
         <a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">
-          {{ t("ecosystem.vueLoader") }}
+          {{ $t("ecosystem.vueLoader") }}
         </a>
       </li>
       <li>
@@ -100,7 +100,7 @@
           target="_blank"
           rel="noopener"
         >
-          {{ t("ecosystem.awesomeVue") }}
+          {{ $t("ecosystem.awesomeVue") }}
         </a>
       </li>
     </ul>
@@ -108,18 +108,14 @@
 </template>
 
 <script>
-import { useI18n } from 'vue-i18n'
+
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
   },
   setup () {
-    const { t, locale } = useI18n()
-
     return {
-      t,
-      locale,
       localeOptions: [
         {
           lang: 'en',

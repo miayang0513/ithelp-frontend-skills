@@ -10,6 +10,15 @@
       </a>
       .
     </p>
+    <select v-model="locale">
+      <option
+        v-for="item in localeOptions"
+        :key="`locale-${item.lang}`"
+        :value="item.lang"
+      >
+        {{ item.name }}
+      </option>
+    </select>
     <h3>{{ t("subTitle.installedCliPlugins") }}</h3>
     <ul>
       <li>
@@ -106,9 +115,21 @@ export default {
     msg: String
   },
   setup () {
-    const { t } = useI18n()
+    const { t, locale } = useI18n()
+
     return {
-      t
+      t,
+      locale,
+      localeOptions: [
+        {
+          lang: 'en',
+          name: 'English'
+        },
+        {
+          lang: 'zh',
+          name: '繁體中文'
+        }
+      ]
     }
   }
 }

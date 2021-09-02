@@ -1,0 +1,26 @@
+{
+  "title": "Welcome to Your Vue.js App",
+  "subTitle": {
+    "installedCliPlugins": "已安裝的 CLI 插件",
+    "essentialLinks": "基本鏈接",
+    "ecosystem": "生態系統"
+  },
+  "installedCliPlugins": {
+    "babel": "babel",
+    "eslint": "eslint"
+  },
+  "essentialLinks": {
+    "coreDocs": "核心文檔",
+    "forum": "論壇",
+    "communityChat": "社區聊天",
+    "twitter": "推特",
+    "news": "新聞"
+  },
+  "ecosystem": {
+    "vueRouter":"vue-router",
+    "vuex": "vuex",
+    "vueDevtools": "vue-devtools",
+    "vueLoader": "vue-loader",
+    "awesomeVue": "awesome-vue"
+  }
+}

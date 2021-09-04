@@ -1,5 +1,5 @@
 {
-  "title": "Welcome to Your Vue.js App",
+  "title": "Welcome to Your {appName} App",
   "subTitle": {
     "installedCliPlugins": "Installed CLI Plugins",
     "essentialLinks": "Essential Links",

@@ -1,5 +1,5 @@
 {
-  "title": "Welcome to Your Vue.js App",
+  "title": "歡迎使用您的 {appName} 應用程序",
   "subTitle": {
     "installedCliPlugins": "已安裝的 CLI 插件",
     "essentialLinks": "基本鏈接",

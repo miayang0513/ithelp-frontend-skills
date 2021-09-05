@@ -17,7 +17,7 @@
     "news": "News"
   },
   "ecosystem": {
-    "vueRouter":"vue-router",
+    "vueRouter": "vue-router",
     "vuex": "vuex",
     "vueDevtools": "vue-devtools",
     "vueLoader": "vue-loader",
@@ -25,5 +25,7 @@
   },
   "word": {
     "app": "App"
-  }
+  },
+  "intro": "For a guide and recipes on how to configure / customize this project, {0} checkout out the {1}.",
+  "vueCliDoc": "vue-cli documentation"
 }

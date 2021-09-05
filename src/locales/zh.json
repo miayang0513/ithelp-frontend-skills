@@ -17,7 +17,7 @@
     "news": "新聞"
   },
   "ecosystem": {
-    "vueRouter":"vue-router",
+    "vueRouter": "vue-router",
     "vuex": "vuex",
     "vueDevtools": "vue-devtools",
     "vueLoader": "vue-loader",
@@ -25,5 +25,7 @@
   },
   "word": {
     "app": "應用程序"
-  }
+  },
+  "intro": "有關如何配置/自定義此項目的指南和食譜，{0} 請查看 {1}。",
+  "vueCliDoc": "vue-cli 文檔"
 }

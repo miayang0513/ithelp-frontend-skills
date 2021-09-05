@@ -1,15 +1,10 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,
-      <br />
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">
-        vue-cli documentation
-      </a>
-      .
-    </p>
+    <i18n-t keypath="intro" tag="p">
+      <br/>
+      <a href="https://cli.vuejs.org" target="_blank">{{ $t("vueCliDoc") }}</a>
+    </i18n-t>
     <select v-model="$i18n.locale">
       <option
         v-for="item in localeOptions"

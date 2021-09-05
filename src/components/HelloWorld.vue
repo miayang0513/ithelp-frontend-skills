@@ -2,8 +2,14 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <i18n-t keypath="intro" tag="p">
-      <br/>
-      <a href="https://cli.vuejs.org" target="_blank">{{ $t("vueCliDoc") }}</a>
+      <template #newline>
+        <br />
+      </template>
+      <template #doc>
+        <a href="https://cli.vuejs.org" target="_blank">
+          {{ $t("vueCliDoc") }}
+        </a>
+      </template>
     </i18n-t>
     <select v-model="$i18n.locale">
       <option

@@ -26,6 +26,6 @@
   "word": {
     "app": "App"
   },
-  "intro": "For a guide and recipes on how to configure / customize this project, {0} checkout out the {1}.",
+  "intro": "For a guide and recipes on how to configure / customize this project, {newline} checkout out the {doc}.",
   "vueCliDoc": "vue-cli documentation"
 }

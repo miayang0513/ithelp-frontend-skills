@@ -1,5 +1,5 @@
 {
-  "title": "歡迎使用您的 {appName} 應用程序",
+  "title": "歡迎使用您的 {appName} @:word.app",
   "subTitle": {
     "installedCliPlugins": "已安裝的 CLI 插件",
     "essentialLinks": "基本鏈接",
@@ -22,5 +22,8 @@
     "vueDevtools": "vue-devtools",
     "vueLoader": "vue-loader",
     "awesomeVue": "awesome-vue"
+  },
+  "word": {
+    "app": "應用程序"
   }
 }

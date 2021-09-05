@@ -1,5 +1,5 @@
 {
-  "title": "Welcome to Your {appName} App",
+  "title": "Welcome to Your {appName} @:word.app",
   "subTitle": {
     "installedCliPlugins": "Installed CLI Plugins",
     "essentialLinks": "Essential Links",
@@ -22,5 +22,8 @@
     "vueDevtools": "vue-devtools",
     "vueLoader": "vue-loader",
     "awesomeVue": "awesome-vue"
+  },
+  "word": {
+    "app": "App"
   }
 }

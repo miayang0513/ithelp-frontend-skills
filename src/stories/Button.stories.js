@@ -4,10 +4,13 @@ export default {
   title: 'Example/Button',
   component: MyButton,
   argTypes: {
-    backgroundColor: { control: 'color' },
-    size: { control: { type: 'select', options: ['small', 'medium', 'large'] } },
-    onClick: {},
-  },
+    size: {
+      control: {
+        type: 'select',
+        options: ['small', 'medium', 'large']
+      }
+    }
+  }
 }
 
 const Template = (args) => ({

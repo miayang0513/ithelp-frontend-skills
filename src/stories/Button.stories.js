@@ -10,6 +10,13 @@ export default {
         options: ['small', 'medium', 'large']
       }
     }
+  },
+  parameters: {
+    docs: {
+      description: {
+        component: 'This is Button\'s description.',
+      }
+    }
   }
 }
 

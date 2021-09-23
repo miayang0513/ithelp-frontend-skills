@@ -1,0 +1,58 @@
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+
+import MyButton from "./Button.vue";
+
+<Meta
+  title="MDX/Button"
+  argTypes={{
+    label: {
+      control: {
+        type: "text",
+      },
+    },
+    size: {
+      control: {
+        type: "select",
+        options: ["small", "medium", "large"],
+      },
+    },
+    primary: {
+      control: {
+        type: "boolean",
+      },
+    },
+    backgroundColor: {
+      control: {
+        type: "color",
+      },
+    },
+  }}
+/>
+
+export const Template = (args) => ({
+  components: { MyButton },
+  setup() {
+    return { args };
+  },
+  template: '<my-button v-bind="args" />',
+});
+
+# Button
+
+這是 Button
+
+<Story
+  name="primary"
+  args={{
+    primary: true,
+    label: "Primary",
+  }}
+>
+  {Template.bind({})}
+</Story>
+
+這是 Header
+
+<Story id="example-header--logged-in" />
+
+<ArgsTable of={MyButton} />

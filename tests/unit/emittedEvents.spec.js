@@ -5,13 +5,14 @@ const Component = {
   template: `
     <div>
       <button data-test="button" @click="increment">Increment</button>
-      <p data-test="count">{{count}}</p>
     </div>
   `,
-  setup () {
+  emits: ['increment'],
+  setup (props, context) {
     const count = ref(0)
     const increment = () => {
       count.value += 1
+      context.emit('increment', count.value)
     }
 
     return {
@@ -21,24 +22,34 @@ const Component = {
   }
 }
 
-describe('Event', () => {
+describe('Emitted Events', () => {
   test('render button', () => {
     const wrapper = mount(Component)
 
     expect(wrapper.get('[data-test="button"]').exists()).toBe(true)
   })
 
-  test('The initial value of count is 0', () => {
+  test('The initial value of count is 0', async () => {
     const wrapper = mount(Component)
 
-    expect(wrapper.get('[data-test="count"]').text()).toBe('0')
+    expect(wrapper.vm.count).toBe(0)
   })
 
-  test('after click, count will be 1', async () => {
+  test('emits an event when clicked', async () => {
     const wrapper = mount(Component)
 
     await wrapper.get('[data-test="button"]').trigger('click')
 
-    expect(wrapper.get('[data-test="count"]').text()).toBe('1')
+    expect(wrapper.emitted()).toHaveProperty('increment')
+  })
+
+  test('after clicked, it will emit value 1', async () => {
+    const wrapper = mount(Component)
+
+    await wrapper.get('[data-test="button"]').trigger('click')
+
+    const incrementEvent = wrapper.emitted('increment')
+
+    expect(incrementEvent[0]).toEqual([1])
   })
 })

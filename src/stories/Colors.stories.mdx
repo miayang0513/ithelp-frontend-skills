@@ -1,0 +1,45 @@
+import { Meta, ColorPalette, ColorItem } from "@storybook/addon-docs";
+
+<Meta title="Colors" />
+
+# Colors
+
+export const color = {
+  primary: "#21B185",
+  secondary: "#268CC8",
+  monochrome: {
+    900: "#222222",
+    800: "#666666",
+    700: "#757575",
+    600: "#878787",
+    500: "#919191",
+    400: "#c4c4c4",
+    300: "#dcdcdc",
+    200: "#f5f5f5",
+    100: "#f9f9f9",
+    0: "#ffffff",
+  },
+};
+
+<ColorPalette>
+  <ColorItem
+    title="color.primary"
+    subtitle="Primary"
+    colors={[color.primary]}
+  />
+  <ColorItem
+    title="color.secondary"
+    subtitle="Secondary"
+    colors={{ secondary: color.secondary }}
+  />
+  <ColorItem
+    title="color.monochrome"
+    subtitle="Monochrome"
+    colors={Object.values(color.monochrome)}
+  />
+  <ColorItem
+    title="color.monochrome"
+    subtitle="Monochrome"
+    colors={color.monochrome}
+  />
+</ColorPalette>

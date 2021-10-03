@@ -1,0 +1,31 @@
+{
+  "title": "Welcome to Your {appName} @:word.app",
+  "subTitle": {
+    "installedCliPlugins": "Installed CLI Plugins",
+    "essentialLinks": "Essential Links",
+    "ecosystem": "Ecosystem"
+  },
+  "installedCliPlugins": {
+    "babel": "babel",
+    "eslint": "eslint"
+  },
+  "essentialLinks": {
+    "coreDocs": "Core Docs",
+    "forum": "Forum",
+    "communityChat": "Community Chat",
+    "twitter": "Twitter",
+    "news": "News"
+  },
+  "ecosystem": {
+    "vueRouter": "vue-router",
+    "vuex": "vuex",
+    "vueDevtools": "vue-devtools",
+    "vueLoader": "vue-loader",
+    "awesomeVue": "awesome-vue"
+  },
+  "word": {
+    "app": "App"
+  },
+  "intro": "For a guide and recipes on how to configure / customize this project, {newline} checkout out the {doc}.",
+  "vueCliDoc": "vue-cli documentation"
+}

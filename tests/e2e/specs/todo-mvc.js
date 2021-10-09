@@ -1,22 +1,78 @@
 describe('Todo MVC', () => {
+  const selectors = {
+    main: '.main',
+    footer: '.footer',
+    todoItems: '.todo-list .todo',
+    newTodo: '.new-todo',
+    lastOne: '.todo-list .todo:last-child'
+  }
+
+  const TODO_ITEM_ONE = 'Item 1'
+  const TODO_ITEM_TWO = 'Item 2'
+
+  beforeEach(() => {
+    cy.visit('https://todomvc.com/examples/vue')
+  })
+
   context('Case 1: Initial State', () => {
-    beforeEach(() => {
-      cy.visit('https://todomvc.com/examples/vue')
-    })
     it('Case 1-1: start with zero todo item', () => {
-      cy.get('.todo-list .todo').should('have.length', 0)
+      cy.get(selectors.todoItems).should('have.length', 0)
     })
+
     it('Case 1-2: hide .main and .footer', () => {
-      cy.get('.main').should('not.be.visible')
-      cy.get('.footer').should('not.be.visible')
+      cy.get(selectors.main).should('not.be.visible')
+      cy.get(selectors.footer).should('not.be.visible')
     })
   })
-  // context('Case 2: New Todo', () => {
-  //   it('Case 2-1: create items', () => { })
-  //   it('Case 2-2: clear input text after an item is added', () => { })
-  //   it('Case 2-3: append new items to the bottom of the list', () => { })
-  //   it('Case 2-4: show .main and .footer when items added', () => { })
-  // })
+
+  context('Case 2: New Todo', () => {
+    it('Case 2-1: create items', () => {
+
+      // create first item
+      cy.get(selectors.newTodo).type(`${TODO_ITEM_ONE}{enter}`)
+
+      cy.get(selectors.todoItems)
+        .eq(0)
+        .find('label')
+        .should('contain', TODO_ITEM_ONE)
+
+      // create second item
+      cy.get(selectors.newTodo).type(`${TODO_ITEM_TWO}{enter}`)
+
+      cy.get(selectors.todoItems)
+        .eq(1)
+        .find('label')
+        .should('contain', TODO_ITEM_TWO)
+
+      cy.get(selectors.todoItems).should('have.length', 2)
+    })
+
+    it('Case 2-2: append new items to the bottom of the list', () => {
+      const TODO_ITEM_LAST_ONE = 'Item Last One'
+
+      for (let i = 0; i < 10; i++) {
+        cy.get(selectors.newTodo).type(`Item ${i}{enter}`)
+      }
+
+      cy.get(selectors.newTodo).type(`${TODO_ITEM_LAST_ONE}{enter}`)
+
+      cy.get(selectors.lastOne)
+        .find('label')
+        .should('contain', TODO_ITEM_LAST_ONE)
+    })
+
+    it('Case 2-3: clear input text after an item is added', () => {
+      cy.get(selectors.newTodo).type(`${TODO_ITEM_ONE}{enter}`)
+      cy.get(selectors.newTodo).should('have.text', '')
+    })
+
+
+    it('Case 2-4: show .main and .footer when items added', () => {
+      cy.get(selectors.newTodo).type(`${TODO_ITEM_ONE}{enter}`)
+      cy.get(selectors.main).should('be.visible')
+      cy.get(selectors.footer).should('be.visible')
+    })
+  })
   // context('Case 3: Mark Todo As Completed', () => {
   //   it('Case 3-1: mark items as completed one by one', () => { })
   //   it('Case 3-2: clear the complete state of item one by one', () => { })

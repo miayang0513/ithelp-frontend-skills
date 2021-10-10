@@ -73,18 +73,56 @@ describe('Todo MVC', () => {
       cy.get(selectors.footer).should('be.visible')
     })
   })
-  // context('Case 3: Mark Todo As Completed', () => {
-  //   it('Case 3-1: mark items as completed one by one', () => { })
-  //   it('Case 3-2: clear the complete state of item one by one', () => { })
-  //   it('Case 3-3: mark all items as completed at once', () => { })
-  //   it('Case 3-4: clear the complete state of all item at once', () => { })
+
+  context('Case 3: Edit Todo', () => {
+    it('Case 3-1: save edits on blur', () => {
+      cy.get(selectors.newTodo).type(`${TODO_ITEM_ONE}{enter}`)
+
+      cy.get(selectors.todoItems)
+        .eq(0)
+        .find('label')
+        .should('contain', TODO_ITEM_ONE)
+        .dblclick()
+
+      cy.get(selectors.todoItems)
+        .eq(0)
+        .find('.edit')
+        .type('{selectall}{backspace}')
+        .type(`${TODO_ITEM_TWO}`)
+        .blur()
+
+      cy.get(selectors.todoItems)
+        .eq(0)
+        .find('label')
+        .should('contain', TODO_ITEM_TWO)
+    })
+    it('Case 3-2: remove the item if an empty text was entered', () => {
+      cy.get(selectors.newTodo).type(`${TODO_ITEM_ONE}{enter}`)
+
+      cy.get(selectors.todoItems)
+        .eq(0)
+        .find('label')
+        .should('contain', TODO_ITEM_ONE)
+        .dblclick()
+
+      cy.get(selectors.todoItems)
+        .eq(0)
+        .find('.edit')
+        .clear()
+        .blur()
+
+      cy.get(selectors.todoItems).should('have.length', 0)
+    })
+  })
+
+  // context('Case 4: Mark Todo As Completed', () => {
+  //   it('Case 4-1: mark items as completed one by one', () => { })
+  //   it('Case 4-2: clear the complete state of item one by one', () => { })
+  //   it('Case 4-3: mark all items as completed at once', () => { })
+  //   it('Case 4-4: clear the complete state of all item at once', () => { })
   // })
-  // context('Case 4: Delete Todo', () => {
-  //   it('Case 4-1: delete item one by one', () => { })
-  //   it('Case 4-2: delete all completed items at once', () => { })
-  // })
-  // context('Case 5: Edit Todo', () => {
-  //   it('Case 5-1: save edits on blur', () => { })
-  //   it('Case 5-2: remove the item if an empty text was entered', () => { })
+  // context('Case 5: Delete Todo', () => {
+  //   it('Case 5-1: delete item one by one', () => { })
+  //   it('Case 5-2: delete all completed items at once', () => { })
   // })
 })

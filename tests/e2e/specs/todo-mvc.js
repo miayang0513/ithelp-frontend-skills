@@ -1,15 +1,15 @@
+const selectors = {
+  main: '.main',
+  footer: '.footer',
+  todoItems: '.todo-list .todo',
+  newTodo: '.new-todo',
+  lastOne: '.todo-list .todo:last-child'
+}
+
+const TODO_ITEM_ONE = 'Item 1'
+const TODO_ITEM_TWO = 'Item 2'
+
 describe('Todo MVC', () => {
-  const selectors = {
-    main: '.main',
-    footer: '.footer',
-    todoItems: '.todo-list .todo',
-    newTodo: '.new-todo',
-    lastOne: '.todo-list .todo:last-child'
-  }
-
-  const TODO_ITEM_ONE = 'Item 1'
-  const TODO_ITEM_TWO = 'Item 2'
-
   beforeEach(() => {
     cy.visit('https://todomvc.com/examples/vue')
   })
@@ -29,20 +29,10 @@ describe('Todo MVC', () => {
     it('Case 2-1: create items', () => {
 
       // create first item
-      cy.get(selectors.newTodo).type(`${TODO_ITEM_ONE}{enter}`)
-
-      cy.get(selectors.todoItems)
-        .eq(0)
-        .find('label')
-        .should('contain', TODO_ITEM_ONE)
+      cy.createTodo(TODO_ITEM_ONE)
 
       // create second item
-      cy.get(selectors.newTodo).type(`${TODO_ITEM_TWO}{enter}`)
-
-      cy.get(selectors.todoItems)
-        .eq(1)
-        .find('label')
-        .should('contain', TODO_ITEM_TWO)
+      cy.createTodo(TODO_ITEM_TWO)
 
       cy.get(selectors.todoItems).should('have.length', 2)
     })
@@ -54,7 +44,7 @@ describe('Todo MVC', () => {
         cy.get(selectors.newTodo).type(`Item ${i}{enter}`)
       }
 
-      cy.get(selectors.newTodo).type(`${TODO_ITEM_LAST_ONE}{enter}`)
+      cy.createTodo(TODO_ITEM_LAST_ONE)
 
       cy.get(selectors.lastOne)
         .find('label')
@@ -62,13 +52,13 @@ describe('Todo MVC', () => {
     })
 
     it('Case 2-3: clear input text after an item is added', () => {
-      cy.get(selectors.newTodo).type(`${TODO_ITEM_ONE}{enter}`)
+      cy.createTodo(TODO_ITEM_ONE)
       cy.get(selectors.newTodo).should('have.text', '')
     })
 
 
     it('Case 2-4: show .main and .footer when items added', () => {
-      cy.get(selectors.newTodo).type(`${TODO_ITEM_ONE}{enter}`)
+      cy.createTodo(TODO_ITEM_ONE)
       cy.get(selectors.main).should('be.visible')
       cy.get(selectors.footer).should('be.visible')
     })
@@ -76,7 +66,7 @@ describe('Todo MVC', () => {
 
   context('Case 3: Edit Todo', () => {
     it('Case 3-1: save edits on blur', () => {
-      cy.get(selectors.newTodo).type(`${TODO_ITEM_ONE}{enter}`)
+      cy.createTodo(TODO_ITEM_ONE)
 
       cy.get(selectors.todoItems)
         .eq(0)
@@ -97,7 +87,7 @@ describe('Todo MVC', () => {
         .should('contain', TODO_ITEM_TWO)
     })
     it('Case 3-2: remove the item if an empty text was entered', () => {
-      cy.get(selectors.newTodo).type(`${TODO_ITEM_ONE}{enter}`)
+      cy.createTodo(TODO_ITEM_ONE)
 
       cy.get(selectors.todoItems)
         .eq(0)

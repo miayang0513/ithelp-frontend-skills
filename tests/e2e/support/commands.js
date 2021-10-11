@@ -53,6 +53,9 @@ Cypress.Commands.add('createTodo', (todo) => {
     .type(`${todo}{enter}`, { log: false })
 
   cy.get(selectors.lastOne, { log: false })
+    .as('lastOne', { log: false })
     .find('label', { log: false })
     .contains(todo, { log: false })
+
+  return cy.get('@lastOne')
 })
